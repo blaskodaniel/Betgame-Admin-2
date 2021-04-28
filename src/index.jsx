@@ -1,7 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './styles/index.scss';
-import AppRoot from './AppRoot.jsx';
+import AppRoot from './AppRoot';
 import reportWebVitals from './reportWebVitals';
 
 ReactDOM.render(<AppRoot />, document.getElementById('root'));

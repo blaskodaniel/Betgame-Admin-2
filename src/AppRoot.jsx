@@ -1,7 +1,15 @@
-import LayoutPage from './pages/Layout.jsx';
+import { BrowserRouter } from 'react-router-dom';
+import LayoutPage from './pages/Layout';
+import AuthenticationProvider from './contexts/AuthContext';
 
 const AppRoot = () => {
-  return <LayoutPage />;
+  return (
+    <BrowserRouter>
+      <AuthenticationProvider>
+        <LayoutPage />;
+      </AuthenticationProvider>
+    </BrowserRouter>
+  );
 };
 
 export default AppRoot;

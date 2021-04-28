@@ -5,6 +5,7 @@
     "node": true
   },
   "extends": [
+    "airbnb",
     "plugin:prettier/recommended",
     "plugin:import/react",
     "plugin:react/recommended",

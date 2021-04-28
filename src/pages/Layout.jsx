@@ -1,6 +1,6 @@
 import { Layout } from 'antd';
-import BGBreadcrumb from '../components/Layout/BreadCrumb.jsx';
-import Navigation from '../components/Layout/Navigation.jsx';
+import BGBreadcrumb from '../components/Layout/BreadCrumb';
+import Navigation from '../components/Layout/Navigation';
 
 const { Header, Content, Footer } = Layout;
 
