@@ -1,22 +1,29 @@
 import { Layout } from 'antd';
-import BGBreadcrumb from '../components/Layout/BreadCrumb';
+import { Route, Switch } from 'react-router-dom';
 import Navigation from '../components/Layout/Navigation';
+import Routing from '../routing';
 
 const { Header, Content, Footer } = Layout;
 
 const LayoutPage = () => {
   return (
     <Layout className="bet-game-layout">
-      <Header style={{ position: 'fixed', zIndex: 1, width: '100%' }}>
+      <Header className="header">
         <Navigation />
       </Header>
-      <Content className="site-layout" style={{ padding: '0 50px', marginTop: 64 }}>
-        <BGBreadcrumb />
-        <div className="site-layout-background" style={{ padding: 24, minHeight: 380 }}>
-          Content
+      <Content className="content">
+        <div className="content-wrapper">
+          <Switch>
+            {Routing.filter((x) => !x.disabled).map((route) => {
+              if (route.param) {
+                return <Route path={`/${route.path}${route.param}`} component={route.component} key={route.id} />;
+              }
+              return <Route path={`/${route.path}`} component={route.component} key={route.id} />;
+            })}
+          </Switch>
         </div>
       </Content>
-      <Footer style={{ textAlign: 'center' }}>Bet Game ©2021</Footer>
+      <Footer className="footer">Bet Game ©2021</Footer>
     </Layout>
   );
 };

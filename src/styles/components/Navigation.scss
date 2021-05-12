@@ -1,0 +1,19 @@
+.bet-game-navigation {
+  .left-side {
+    display: flex;
+    .logo {
+      img {
+        max-width: 80px;
+        margin-top: -4px;
+      }
+    }
+  }
+
+  .logout {
+    span {
+      color: white;
+      margin-left: 10px;
+      cursor: pointer;
+    }
+  }
+}

@@ -1,4 +1,5 @@
 export const antdBreakpoints = {
+  xxs: '380px',
   xs: '480px',
   sm: '576px',
   md: '768px',

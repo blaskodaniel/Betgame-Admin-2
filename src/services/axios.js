@@ -27,7 +27,7 @@ APIClient.interceptors.request.use(
 
     return request;
   },
-  function (err) {
+  (err) => {
     return Promise.reject(err);
   },
 );
