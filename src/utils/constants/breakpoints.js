@@ -1,5 +1,5 @@
 export const antdBreakpoints = {
-  xxs: '380px',
+  xxs: '380px', // it is not come from Ant Design
   xs: '480px',
   sm: '576px',
   md: '768px',

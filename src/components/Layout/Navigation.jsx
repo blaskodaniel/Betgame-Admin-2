@@ -12,11 +12,14 @@ import {
   UserOutlined,
 } from '@ant-design/icons';
 import { Link } from 'react-router-dom';
+import { useRecoilValue } from 'recoil';
 import { antdBreakpoints } from '../../utils/constants/breakpoints';
+import { cartSelector } from '../../statemanager/selectors';
 
 const { SubMenu } = Menu;
 
 const Navigation = () => {
+  const cartvalue = useRecoilValue(cartSelector);
   const isMobile = useMediaQuery({ query: `(max-width: ${antdBreakpoints.xs})` });
   const isSmallMobile = useMediaQuery({ query: `(max-width: ${antdBreakpoints.xxs})` });
   return (
@@ -75,7 +78,7 @@ const Navigation = () => {
       <Col>
         <div className="logout">
           <LogoutOutlined />
-          {!isMobile && <span style={{ color: 'white' }}>Kilépés</span>}
+          {!isMobile && <span style={{ color: 'white' }}>Kilépés {cartvalue}</span>}
         </div>
       </Col>
     </Row>

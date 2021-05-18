@@ -23,7 +23,7 @@ const LayoutPage = () => {
           </Switch>
         </div>
       </Content>
-      <Footer className="footer">Bet Game ©2021</Footer>
+      <Footer className="footer">Mókásfoci ©2021</Footer>
     </Layout>
   );
 };

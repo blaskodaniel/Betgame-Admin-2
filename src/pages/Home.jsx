@@ -1,7 +1,17 @@
-import { Col, Row } from 'antd';
+import { Button, Col, Row } from 'antd';
 import Chart from 'react-apexcharts';
+import { useRecoilState, useRecoilValue } from 'recoil';
+import { cart as cartAtom, currentUser } from '../statemanager/atoms';
 
 const HomePage = () => {
+  // const [currentuser, setcurrentuser] = useRecoilState(currentUserAtom);
+  const currentuser = useRecoilValue(currentUser);
+  const [cart, setCart] = useRecoilState(cartAtom);
+
+  const test = () => {
+    setCart(Math.round(Math.random() * 100));
+  };
+
   const options = {
     chart: {
       id: 'basic-bar',
@@ -22,9 +32,13 @@ const HomePage = () => {
   ];
   return (
     <Row>
-      <Col>
+      <Col span={24}>
         <h1> This is the home page</h1>
-        <Chart options={options} series={series} type="line" width="100%" />
+        <Chart options={options} series={series} type="line" width="500px" />
+      </Col>
+      <Col span={24}>
+        <p>Logged in: {JSON.stringify(currentuser)}</p>
+        <Button onClick={test}>Add</Button>
       </Col>
     </Row>
   );

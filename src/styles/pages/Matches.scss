@@ -1,0 +1,51 @@
+.mf-matches {
+  .box {
+    width: 100%;
+    border: 1px solid #00000029;
+    background: #ffffff73;
+    background: linear-gradient(to top, #ffffff73, #f1efef73);
+    background: linear-gradient(to top, #ffffff73, #f1efef73);
+    margin-bottom: 15px;
+
+    header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 10px;
+      background-color: #b2ec94;
+      .teams {
+        font-size: 1.1rem;
+        justify-content: center;
+        display: flex;
+        align-items: center;
+
+        @include screen(mobile) {
+          font-size: 0.8rem;
+        }
+
+        .flag {
+          margin-left: 10px;
+          margin-right: 10px;
+        }
+      }
+    }
+
+    .body {
+      padding: 10px;
+      .odds {
+        display: flex;
+        gap: 15px;
+      }
+      .goals {
+        display: flex;
+        gap: 15px;
+      }
+    }
+
+    footer {
+      padding: 10px;
+      display: flex;
+      justify-content: flex-end;
+    }
+  }
+}
