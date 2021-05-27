@@ -2,7 +2,8 @@ import GameSettings from './pages/GameSettings';
 import GroupsPage from './pages/Groups';
 import HomePage from './pages/Home';
 import LogsPage from './pages/Logs';
-import MatchesPage from './pages/Matches';
+import MatchPage from './pages/Match';
+import MatchListPage from './pages/MatchList';
 import TeamsPage from './pages/Teams';
 import UsersPage from './pages/Users';
 
@@ -12,15 +13,24 @@ const Routing = [
     path: '/',
     icon: 'las la-home',
     component: HomePage,
-    visible: true,
+    visibleinmenu: true,
     disabled: false,
   },
   {
     id: 'matches',
     path: 'matches',
     icon: 'las la-home',
-    component: MatchesPage,
-    visible: true,
+    component: MatchListPage,
+    visibleinmenu: true,
+    disabled: false,
+  },
+  {
+    id: 'matchpage',
+    path: 'match',
+    icon: 'las la-home',
+    component: MatchPage,
+    visibleinmenu: false,
+    param: '/:matchid',
     disabled: false,
   },
   {
@@ -28,7 +38,7 @@ const Routing = [
     path: 'teams',
     icon: 'las la-home',
     component: TeamsPage,
-    visible: true,
+    visibleinmenu: true,
     disabled: false,
   },
   {
@@ -36,7 +46,7 @@ const Routing = [
     path: 'users',
     icon: 'las la-home',
     component: UsersPage,
-    visible: true,
+    visibleinmenu: true,
     disabled: false,
   },
   {
@@ -44,7 +54,7 @@ const Routing = [
     path: 'groups',
     icon: 'las la-home',
     component: GroupsPage,
-    visible: true,
+    visibleinmenu: true,
     disabled: false,
   },
   {
@@ -52,7 +62,7 @@ const Routing = [
     path: 'settings',
     icon: 'las la-home',
     component: GameSettings,
-    visible: true,
+    visibleinmenu: true,
     disabled: false,
   },
   {
@@ -60,7 +70,7 @@ const Routing = [
     path: 'logs',
     icon: 'las la-home',
     component: LogsPage,
-    visible: true,
+    visibleinmenu: true,
     disabled: false,
   },
 ];

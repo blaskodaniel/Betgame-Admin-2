@@ -1,11 +1,10 @@
 import { selector } from 'recoil';
-import { cart } from './atoms';
+import { GetAllMatches } from '../services/api-functions';
 
-export const cartSelector = selector({
-  key: 'cartSelector',
-  get: ({ get }) => {
-    const carta = get(cart);
-    const newcart = carta * 10;
-    return newcart;
+export const getMatchesSct = selector({
+  key: 'getMatchesSct',
+  get: async () => {
+    const resp = await GetAllMatches();
+    return resp.data;
   },
 });

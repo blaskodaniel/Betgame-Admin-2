@@ -1,29 +1,18 @@
-import { SyncOutlined } from '@ant-design/icons';
-import { Avatar, Button, Col, DatePicker, Form, Input, InputNumber, Row } from 'antd';
+import { Button, Col, DatePicker, Form, Input, InputNumber, Row, Select } from 'antd';
 import Title from 'antd/lib/typography/Title';
 import moment from 'moment';
+import MatchBoxHeader from './MatchBoxHeader';
 
 const dateFormatWithTime = 'DD/MM/YYYY HH:mm';
 const dateFormat = 'DD/MM/YYYY';
 
+const { Option } = Select;
+
 const MatchBox = ({ match }) => {
   const [matchform] = Form.useForm();
   return (
-    <Col className="box">
-      <header>
-        <div className="teams">
-          <span className="teamname">{match.teamA.name}</span>
-          <Avatar size={15} alt={`${match.teamA.name}-flag`} src={`/flags/${match.teamA.flag}`} className="flag" />
-          {match.goalA ?? <span className="score">{match.goalA}</span>}
-          <span>-</span>
-          {match.goalB ?? <span className="score">{match.goalB}</span>}
-          <Avatar size={15} alt={`${match.teamB.name}-flag`} src={`/flags/${match.teamB.flag}`} className="flag" />
-          <span className="teamname">{match.teamB.name}</span>
-        </div>
-        <div className="status">
-          <SyncOutlined spin />
-        </div>
-      </header>
+    <Col className="mf-matchbox">
+      <MatchBoxHeader match={match} />
       <div className="body">
         <Form name={match._id} form={matchform} size="small" layout="vertical">
           <Row gutter={16}>
@@ -78,28 +67,38 @@ const MatchBox = ({ match }) => {
               </div>
             </Col>
           </Row>
-          <Row gutter={16}>
-            <Col sm={24}>
+          <Row gutter={16} className="settings">
+            <Col sm={12}>
               <Title level={5}>Mérkőzés beállítások</Title>
-              <div className="odds">
-                <Form.Item
-                  label="Státusz"
-                  name="1"
-                  initialValue={match?.oddsAwin || ''}
-                  onChange={(e) => console.log(e.target.value)}
-                >
-                  <Input placeholder="goalA" />
+              <div className="active-type">
+                <Form.Item name="active" label="Státusz" initialValue={match.active.toString()}>
+                  <Select className="select-field" placeholder="A mérkőzés állapota">
+                    <Option value="-1">Offline</Option>
+                    <Option value="0">Onnline</Option>
+                    <Option value="1">Most játszák</Option>
+                    <Option value="2">Lejátszották</Option>
+                  </Select>
                 </Form.Item>
-                <Form.Item label="Dátum" name="datum">
-                  <Input />
+                <Form.Item name="type" label="Típus" initialValue={match.type.toString()}>
+                  <Select className="select-field" placeholder="Típus">
+                    <Option value="0">1. csoportkör</Option>
+                    <Option value="1">2. csoportkör</Option>
+                    <Option value="2">3. csoportkör</Option>
+                    <Option value="3">Nyolcaddöntő</Option>
+                    <Option value="4">Negyeddöntő</Option>
+                    <Option value="5">Elődöntő</Option>
+                    <Option value="6">A 3. helyért</Option>
+                    <Option value="7">Döntő</Option>
+                    <Option value="8">Selejtező</Option>
+                  </Select>
                 </Form.Item>
               </div>
             </Col>
             <Col sm={24}>
-              <div className="odds">
+              <div>
                 <Form.Item
                   label="Helyszín"
-                  name="1"
+                  name="location"
                   initialValue={match?.oddsAwin || ''}
                   onChange={(e) => console.log(e.target.value)}
                 >
@@ -107,7 +106,7 @@ const MatchBox = ({ match }) => {
                 </Form.Item>
                 <Form.Item
                   label="Megjegyzések"
-                  name="2"
+                  name="comment"
                   initialValue={match?.oddsBwin || ''}
                   onChange={(e) => console.log(e.target.value)}
                 >

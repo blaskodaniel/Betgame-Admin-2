@@ -1,51 +1,104 @@
 .mf-matches {
-  .box {
-    width: 100%;
-    border: 1px solid #00000029;
-    background: #ffffff73;
-    background: linear-gradient(to top, #ffffff73, #f1efef73);
-    background: linear-gradient(to top, #ffffff73, #f1efef73);
+  display: flex;
+  flex-direction: column;
+  .mf-title {
+    color: #fdeeee;
+  }
+  .listitem {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px;
     margin-bottom: 15px;
+    color: white;
+    border-radius: 10px;
+    box-shadow: 0px 0px 7px 0px #0000006b;
+    background-color: $status_offline;
 
-    header {
+    &.offline {
+      background-color: $status_offline;
+    }
+
+    &.online {
+      background-color: $status_online;
+    }
+
+    &.playing {
+      background-color: $status_playing;
+    }
+
+    &.close {
+      background-color: $status_close;
+    }
+
+    & > div {
+      max-height: 25px;
+    }
+    .teams {
+      width: 50%;
       display: flex;
       align-items: center;
-      justify-content: space-between;
-      padding: 10px;
-      background-color: #b2ec94;
-      .teams {
-        font-size: 1.1rem;
+      .flag {
+        margin-left: 10px;
+        margin-right: 10px;
+      }
+
+      @include screen(tablet) {
+        width: 100%;
         justify-content: center;
-        display: flex;
-        align-items: center;
-
-        @include screen(mobile) {
-          font-size: 0.8rem;
-        }
-
-        .flag {
-          margin-left: 10px;
+      }
+    }
+    .odds {
+      width: 25%;
+      text-align: center;
+      span {
+        margin-right: 5px;
+        width: 35px;
+        padding: 4px;
+        height: 25px;
+        background: #2e3135;
+        display: inline-block;
+        border-radius: 5px;
+        font-weight: 700;
+        font-size: 12px;
+      }
+      @include screen(tablet) {
+        width: 100%;
+        text-align: center;
+        margin-top: 12px;
+        margin-bottom: 12px;
+      }
+    }
+    .status {
+      width: 10%;
+      text-align: center;
+      span {
+        border-radius: 5px;
+      }
+      @include screen(tablet) {
+        width: 100%;
+        text-align: center;
+      }
+    }
+    .actions {
+      width: 10%;
+      text-align: right;
+      span {
+        &:first-child {
           margin-right: 10px;
         }
+        font-size: 1rem;
+        cursor: pointer;
+      }
+
+      @include screen(tablet) {
+        width: 100%;
+        text-align: right;
       }
     }
 
-    .body {
-      padding: 10px;
-      .odds {
-        display: flex;
-        gap: 15px;
-      }
-      .goals {
-        display: flex;
-        gap: 15px;
-      }
-    }
-
-    footer {
-      padding: 10px;
-      display: flex;
-      justify-content: flex-end;
+    @include screen(tablet) {
+      flex-direction: column;
     }
   }
 }

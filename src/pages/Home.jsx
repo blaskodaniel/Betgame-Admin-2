@@ -1,16 +1,11 @@
 import { Button, Col, Row } from 'antd';
 import Chart from 'react-apexcharts';
 import { useRecoilState, useRecoilValue } from 'recoil';
-import { cart as cartAtom, currentUser } from '../statemanager/atoms';
+import { currentUser } from '../statemanager/atoms';
 
 const HomePage = () => {
   // const [currentuser, setcurrentuser] = useRecoilState(currentUserAtom);
   const currentuser = useRecoilValue(currentUser);
-  const [cart, setCart] = useRecoilState(cartAtom);
-
-  const test = () => {
-    setCart(Math.round(Math.random() * 100));
-  };
 
   const options = {
     chart: {
@@ -38,7 +33,6 @@ const HomePage = () => {
       </Col>
       <Col span={24}>
         <p>Logged in: {JSON.stringify(currentuser)}</p>
-        <Button onClick={test}>Add</Button>
       </Col>
     </Row>
   );

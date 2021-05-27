@@ -7,7 +7,7 @@ export const currentUser = atom({
   },
 });
 
-export const cart = atom({
-  key: 'cart',
-  default: 0,
+export const MatchesAtom = atom({
+  key: 'matchesatom',
+  default: [],
 });

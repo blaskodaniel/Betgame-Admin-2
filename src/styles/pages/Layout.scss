@@ -14,10 +14,13 @@
   .content {
     padding: 0 50px;
     margin-top: 64px;
+    background-color: $background;
 
     .content-wrapper {
-      padding: 24px 24px;
+      padding: 15px 24px;
       min-height: 380px;
+      max-width: $layout_maxwidht;
+      margin: 0 auto;
 
       @include screen(smallmonitor) {
         padding: 24px 10px;
@@ -31,5 +34,7 @@
 
   .footer {
     text-align: center;
+    background-color: $footer_background;
+    color: white;
   }
 }
