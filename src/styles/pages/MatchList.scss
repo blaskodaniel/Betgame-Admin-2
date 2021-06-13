@@ -1,6 +1,30 @@
 .mf-matches {
   display: flex;
   flex-direction: column;
+  .latest-matches {
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+    .empty-latest-matches {
+      text-align: center;
+      color: #776767;
+      padding: 2rem 0rem;
+      span {
+        font-size: 2rem;
+      }
+    }
+  }
+  .header-panel {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    .sorter {
+      .sortbtn {
+        background-color: #2d4369;
+        color: white;
+        border: 1px solid #00000052;
+      }
+    }
+  }
   .mf-title {
     color: #fdeeee;
   }
@@ -8,7 +32,7 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 15px;
+    padding: 20px;
     margin-bottom: 15px;
     color: white;
     border-radius: 10px;
@@ -37,7 +61,16 @@
     .teams {
       width: 50%;
       display: flex;
-      align-items: center;
+      flex-direction: column;
+      position: relative;
+      top: -10px;
+
+      div:nth-child(1) {
+        font-size: 1.3em;
+      }
+      div:nth-child(2) {
+        font-size: 0.7em;
+      }
       .flag {
         margin-left: 10px;
         margin-right: 10px;
@@ -101,4 +134,8 @@
       flex-direction: column;
     }
   }
+}
+
+.selected-sort {
+  background: $main;
 }

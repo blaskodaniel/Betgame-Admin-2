@@ -1,17 +1,18 @@
-/* eslint-disable jsx-a11y/label-has-associated-control */
+import { Layout } from 'antd';
 import { Route, Switch } from 'react-router-dom';
-import Navbar from '../components/Layout/Navbar';
-import Sidebar from '../components/Layout/Sidebar';
+import Navigation from '../components/Layout/Navigation';
 import Routing from '../routing';
 
-const Layout = () => {
+const { Header, Content, Footer } = Layout;
+
+const LayoutPage = () => {
   return (
-    <div className="mf-layout">
-      <input type="checkbox" id="menu-toggler" />
-      <Sidebar />
-      <div className="main-content">
-        <Navbar />
-        <main>
+    <Layout className="bet-game-layout">
+      <Header className="header">
+        <Navigation />
+      </Header>
+      <Content className="content">
+        <div className="content-wrapper">
           <Switch>
             {Routing.filter((x) => !x.disabled).map((route) => {
               if (route.param) {
@@ -20,11 +21,11 @@ const Layout = () => {
               return <Route path={`/${route.path}`} component={route.component} key={route.id} />;
             })}
           </Switch>
-        </main>
-      </div>
-      <label className="close-mobile-menu" htmlFor="menu-toggler" />
-    </div>
+        </div>
+      </Content>
+      <Footer className="footer">Mókásfoci ©2021</Footer>
+    </Layout>
   );
 };
 
-export default Layout;
+export default LayoutPage;

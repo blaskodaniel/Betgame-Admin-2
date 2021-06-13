@@ -47,6 +47,11 @@ const AuthenticationProvider = ({ children }) => {
     }
   };
 
+  const onLogout = () => {
+    localStorage.removeItem(process.env.REACT_APP_JWTTOKEN);
+    setLoginState(LoginState.Unauthenticated);
+  };
+
   useEffect(() => {
     const token = tokenChecker();
     if (token) {
@@ -60,7 +65,7 @@ const AuthenticationProvider = ({ children }) => {
 
   return (
     <>
-      <AuthenticationContext.Provider value={{ loginState }}>
+      <AuthenticationContext.Provider value={{ loginState, onLogout }}>
         {loginState === LoginState.Pending ? <p>Loading. Please wait...</p> : null}
         {loginState === LoginState.Authenticated ? children : null}
         {loginState === LoginState.Unauthenticated || loginState === LoginState.Unknown ? (

@@ -1,0 +1,15 @@
+header {
+  height: 70px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: $bg;
+  padding: 0rem 1rem;
+  position: fixed;
+  left: calc(#{$sidebar-width} + 1rem);
+  border-radius: 5px;
+  right: 1rem;
+  top: 0.5rem;
+  z-index: 1;
+  transition: left 300ms;
+}

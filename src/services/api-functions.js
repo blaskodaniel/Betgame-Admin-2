@@ -7,3 +7,7 @@ export const Login = (email, password) => {
 export const GetAllMatches = (query = '') => {
   return PublicAPIClient.get(`getmatches${query}`);
 };
+
+export const GetMatchById = (id) => {
+  return PublicAPIClient.get(`getmatches?_id=${id}`);
+};

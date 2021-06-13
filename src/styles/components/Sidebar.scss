@@ -1,0 +1,78 @@
+.sidebar {
+  position: fixed;
+  height: 100%;
+  left: 0;
+  top: 0;
+  width: $sidebar-width;
+  background: $bg;
+  overflow-y: auto;
+  transition: width 300ms;
+
+  .brand {
+    padding: 0.5rem 1rem;
+    display: flex;
+    align-items: center;
+    height: 70px;
+    justify-content: center;
+    h3 {
+      color: $main;
+    }
+  }
+
+  .brand i {
+    font-size: 1.8rem;
+    margin-right: 0.5rem;
+  }
+
+  .side-user {
+    margin: 0rem 1rem 2rem 1rem;
+  }
+
+  .side-img {
+    height: 100px;
+    width: 100px;
+    background-size: cover;
+    background-repeat: no-repeat;
+    margin: auto;
+    border: 4px solid #3e454d;
+    border-radius: 50%;
+  }
+
+  .user {
+    text-align: center;
+    color: #fff;
+    margin-top: 0.5rem;
+  }
+
+  .user small {
+    display: inline-block;
+    color: $main;
+  }
+
+  .sidemenu {
+    padding: 0.5rem;
+  }
+
+  .sidemenu li {
+    margin-bottom: 0.8rem;
+  }
+
+  .sidemenu a {
+    color: #fff;
+    font-size: 0.85rem;
+    display: flex;
+    align-items: center;
+  }
+
+  .sidemenu a i {
+    font-size: 1.3rem;
+    padding: 0rem 0.6rem;
+  }
+
+  .sidemenu a.active {
+    background: $main;
+    color: #0a3d40;
+    border-radius: 5px;
+    height: 40px;
+  }
+}

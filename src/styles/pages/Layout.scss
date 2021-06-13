@@ -1,40 +1,179 @@
 @import '../mixins/media.scss';
+.mf-layout {
+  #menu-toggler {
+    display: none;
+  }
 
-.bet-game-layout {
-  .header {
+  #menu-toggler:checked ~ .sidebar .brand h3 {
+    display: none;
+  }
+
+  #menu-toggler:checked ~ .sidebar .side-img {
+    width: 50px;
+    height: 50px;
+  }
+
+  #menu-toggler:checked ~ .sidebar .side-user {
+    margin: 0rem 0rem 2rem 0rem;
+  }
+
+  #menu-toggler:checked ~ .sidebar .user {
+    display: none;
+  }
+
+  #menu-toggler:checked ~ .sidebar ul li span {
+    display: none;
+  }
+
+  #menu-toggler:checked ~ .sidebar {
+    width: $sidebar-mobile-width;
+  }
+
+  #menu-toggler:checked ~ .main-content header {
+    left: calc(#{$sidebar-mobile-width} + 1rem);
+  }
+
+  #menu-toggler:checked ~ .main-content {
+    margin-left: $sidebar-mobile-width;
+  }
+
+  .main-content {
+    margin-left: $sidebar-width;
+    background: $bg-body;
+    min-height: 100vh;
+    padding: 0.5rem 1rem;
+    transition: margin-left 300ms;
+  }
+
+  .search {
+    display: flex;
+    width: 300px;
+    color: #fff;
+  }
+
+  .head-icons {
+    color: #fff;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+
+    i {
+      margin-right: 0.5rem;
+      font-size: 1.5rem;
+    }
+  }
+
+  .menu-toggle {
+    height: 40px;
+    width: 40px;
+    background: $main;
+    color: #fff;
+    display: grid;
+    place-items: center;
+    border-radius: 5px;
+  }
+
+  main {
+    margin-top: calc(#{$header-height} + 0.5rem);
+  }
+
+  .close-mobile-menu {
     position: fixed;
-    z-index: 1;
-    width: 100%;
+    right: -100%;
+    top: 0;
+    display: block;
+    height: 100%;
+    width: calc(100% - #{$sidebar-width});
+    background: transparent;
+    z-index: 100;
+    transition: right 300ms;
+  }
 
-    @include screen(mobile) {
-      padding: 0 15px;
+  @media only screen and (max-width: 1124px) {
+    /* MENU CHECKED OFF */
+    #menu-toggler ~ .sidebar .brand h3 {
+      display: none;
+    }
+
+    #menu-toggler ~ .sidebar .side-img {
+      width: 50px;
+      height: 50px;
+    }
+
+    #menu-toggler ~ .sidebar .side-user {
+      margin: 0rem 0rem 2rem 0rem;
+    }
+
+    #menu-toggler ~ .sidebar .user {
+      display: none;
+    }
+
+    #menu-toggler ~ .sidebar ul li span {
+      display: none;
+    }
+
+    #menu-toggler ~ .sidebar {
+      width: $sidebar-mobile-width;
+    }
+
+    #menu-toggler ~ .main-content header {
+      left: calc(#{$sidebar-mobile-width} + 1rem);
+    }
+
+    #menu-toggler ~ .main-content {
+      margin-left: $sidebar-mobile-width;
+    }
+
+    /* MENU CHECKED */
+    #menu-toggler:checked ~ .sidebar .brand h3 {
+      display: block;
+    }
+
+    #menu-toggler:checked ~ .sidebar .side-img {
+      width: 120px;
+      height: 120px;
+    }
+
+    #menu-toggler:checked ~ .sidebar .side-user {
+      margin: 0rem 1rem 2rem 1rem;
+    }
+
+    #menu-toggler:checked ~ .sidebar .user {
+      display: block;
+    }
+
+    #menu-toggler:checked ~ .sidebar ul li span {
+      display: inline-block;
+    }
+
+    #menu-toggler:checked ~ .sidebar {
+      width: $sidebar-width;
+      z-index: 100;
+    }
+
+    #menu-toggler:checked ~ .close-mobile-menu {
+      right: 0;
     }
   }
 
-  .content {
-    padding: 0 50px;
-    margin-top: 64px;
-    background-color: $background;
-
-    .content-wrapper {
-      padding: 15px 24px;
-      min-height: 380px;
-      max-width: $layout_maxwidht;
-      margin: 0 auto;
-
-      @include screen(smallmonitor) {
-        padding: 24px 10px;
-      }
+  @media only screen and (max-width: 845px) {
+    .cards {
+      grid-template-columns: repeat(2, 1fr);
     }
-
-    @include screen(smallmonitor) {
-      padding: 0 10px;
+    .chart-grid {
+      grid-template-columns: 100%;
     }
   }
 
-  .footer {
-    text-align: center;
-    background-color: $footer_background;
-    color: white;
+  @media only screen and (max-width: 768px) {
+    .search {
+      display: none;
+    }
+  }
+
+  @media only screen and (max-width: 630px) {
+    .cards {
+      grid-template-columns: 100%;
+    }
   }
 }

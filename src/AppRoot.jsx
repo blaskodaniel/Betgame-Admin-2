@@ -1,9 +1,9 @@
 import { BrowserRouter } from 'react-router-dom';
 import { RecoilRoot } from 'recoil';
 import { ErrorBoundary } from 'react-error-boundary';
-import LayoutPage from './pages/Layout';
 import AuthenticationProvider from './contexts/AuthContext';
 import ErrorHandler from './components/ErrorHandler';
+import Layout from './pages/Layout';
 
 const AppRoot = () => {
   return (
@@ -11,7 +11,7 @@ const AppRoot = () => {
       <ErrorBoundary FallbackComponent={ErrorHandler}>
         <BrowserRouter>
           <AuthenticationProvider>
-            <LayoutPage />;
+            <Layout />;
           </AuthenticationProvider>
         </BrowserRouter>
       </ErrorBoundary>

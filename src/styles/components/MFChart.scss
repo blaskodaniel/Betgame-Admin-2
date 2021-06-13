@@ -1,0 +1,16 @@
+.chart {
+  padding: 1rem;
+  background: $bg;
+  color: #fff;
+  border-radius: 3px;
+}
+
+.chart-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: #efefef;
+  padding-bottom: 1rem;
+  border-bottom: 1px solid #222;
+  margin-bottom: 1rem;
+}
