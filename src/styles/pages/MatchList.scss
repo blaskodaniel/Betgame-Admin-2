@@ -1,4 +1,9 @@
 .mf-matches {
+  .page-header {
+    display: flex;
+    justify-content: flex-end;
+    padding-top: 1rem;
+  }
   display: flex;
   flex-direction: column;
   .latest-matches {
@@ -66,19 +71,23 @@
       top: -10px;
 
       div:nth-child(1) {
-        font-size: 1.3em;
+        font-size: 1.3rem;
+
+        @include screen(maxwidthlg) {
+          font-size: 1rem;
+        }
       }
       div:nth-child(2) {
-        font-size: 0.7em;
+        font-size: 0.7rem;
       }
       .flag {
         margin-left: 10px;
         margin-right: 10px;
       }
 
-      @include screen(tablet) {
+      @include screen(smallmonitor) {
         width: 100%;
-        justify-content: center;
+        align-items: center;
       }
     }
     .odds {
@@ -95,7 +104,7 @@
         font-weight: 700;
         font-size: 12px;
       }
-      @include screen(tablet) {
+      @include screen(smallmonitor) {
         width: 100%;
         text-align: center;
         margin-top: 12px;
@@ -108,7 +117,7 @@
       span {
         border-radius: 5px;
       }
-      @include screen(tablet) {
+      @include screen(smallmonitor) {
         width: 100%;
         text-align: center;
       }
@@ -124,13 +133,13 @@
         cursor: pointer;
       }
 
-      @include screen(tablet) {
+      @include screen(smallmonitor) {
         width: 100%;
         text-align: right;
       }
     }
 
-    @include screen(tablet) {
+    @include screen(smallmonitor) {
       flex-direction: column;
     }
   }

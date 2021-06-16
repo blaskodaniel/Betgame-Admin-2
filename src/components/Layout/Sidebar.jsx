@@ -1,4 +1,4 @@
-import { Link, NavLink } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 import Routing from '../../routing';
 
 const Sidebar = () => {
@@ -19,7 +19,11 @@ const Sidebar = () => {
           {Routing.filter((x) => x.visibleinmenu && !x.disabled).map((route) => {
             return (
               <li key={route.id}>
-                <NavLink exact={route.path === '/' && true} to={`/${route.path}`} activeClassName="active">
+                <NavLink
+                  exact={route.path === '/' && true}
+                  to={route.path === '/' ? '/' : `/${route.path}`}
+                  activeClassName="active"
+                >
                   <i className={route.icon} />
                   <span>{route.displayname}</span>
                 </NavLink>

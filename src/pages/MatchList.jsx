@@ -1,4 +1,10 @@
-import { ArrowDownOutlined, ArrowUpOutlined, DownOutlined, InfoCircleOutlined } from '@ant-design/icons';
+import {
+  ArrowDownOutlined,
+  ArrowUpOutlined,
+  DownOutlined,
+  InfoCircleOutlined,
+  PlusCircleOutlined,
+} from '@ant-design/icons';
 import { Button, Dropdown, Menu, Row, Space, Typography } from 'antd';
 import moment from 'moment';
 import { useEffect, useState } from 'react';
@@ -76,6 +82,11 @@ const MatchListPage = () => {
 
   return (
     <Row className="mf-matches">
+      <div className="page-header">
+        <Button className="mf-button-style" type="primary" shape="round" icon={<PlusCircleOutlined />}>
+          Új mérkőzés
+        </Button>
+      </div>
       <div className="latest-matches">
         <Title level={4} className="mf-title">
           A mai nap mérkőzései
@@ -93,7 +104,7 @@ const MatchListPage = () => {
       <div className="header-panel">
         <div className="title">
           <Title level={4} className="mf-title">
-            A bajnokság összess mérkőzése
+            A bajnokság mérkőzései
           </Title>
         </div>
         <div className="sorter">

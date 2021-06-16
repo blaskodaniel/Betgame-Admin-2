@@ -1,7 +1,14 @@
 .loader {
   color: white;
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
-  height: auto;
+  height: 60vh;
+  span {
+    font-size: 2rem;
+  }
+  p {
+    padding-top: 1rem;
+  }
 }

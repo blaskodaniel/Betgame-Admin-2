@@ -1,7 +1,8 @@
 .mf-match-page {
-  .ant-page-header-heading-title {
-    color: white;
-    font-size: 15px;
+  .site-page-header {
+    .ant-page-header-back-button {
+      color: #fff;
+    }
   }
   color: white;
   .form-wrapper {
@@ -18,11 +19,33 @@
         display: flex;
         justify-content: center;
         align-items: center;
+        .goal-wrapper {
+          background: #1b2d3c;
+          padding: 0rem 0.67rem;
+          border-radius: 6px;
+          span {
+            padding-left: 0.2rem;
+            padding-right: 0.2rem;
+          }
+        }
       }
       .flag {
-        margin-left: 10px;
-        margin-right: 10px;
+        margin-left: 20px;
+        margin-right: 20px;
+
+        @include screen(mobile) {
+          margin-left: 10px;
+          margin-right: 10px;
+        }
       }
+
+      @include screen(tablet) {
+        font-size: 1rem;
+      }
+    }
+    .match-editor {
+      padding-left: 1rem;
+      padding-right: 1rem;
     }
   }
 }

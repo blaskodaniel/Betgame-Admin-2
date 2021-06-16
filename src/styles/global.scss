@@ -15,8 +15,21 @@
 }
 
 body {
-  font-size: 16px;
+  font-size: 1rem;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   background: $bg-body;
+}
+
+.mf-button-style {
+  background: $main;
+  border-color: $main;
+  color: $bg;
+
+  &:hover,
+  &:focus {
+    background: $main-hover;
+    border-color: $main;
+    color: $bg;
+  }
 }

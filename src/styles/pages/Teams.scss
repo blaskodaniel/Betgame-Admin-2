@@ -1,0 +1,29 @@
+.teams-page {
+  padding-top: 1rem;
+  .page-header {
+    display: flex;
+    justify-content: flex-end;
+  }
+  .list {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    gap: 1.5rem;
+    padding-top: 1rem;
+
+    @include screen(maxwidthlg) {
+      grid-template-columns: 1fr 1fr 1fr;
+    }
+
+    @include screen(smallmonitor) {
+      grid-template-columns: 1fr 1fr;
+    }
+
+    @include screen(tablet) {
+      grid-template-columns: 1fr 1fr;
+    }
+
+    @include screen(mobile) {
+      grid-template-columns: 1fr;
+    }
+  }
+}

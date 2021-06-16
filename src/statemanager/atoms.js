@@ -11,3 +11,8 @@ export const MatchesAtom = atom({
   key: 'matchesatom',
   default: [],
 });
+
+export const TeamsAtom = atom({
+  key: 'teamsatom',
+  default: [],
+});

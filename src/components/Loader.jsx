@@ -3,8 +3,8 @@ import { Spin } from 'antd';
 const Loader = ({ title }) => {
   return (
     <div className="loader">
-      {title}
       <Spin />
+      <p>{title}</p>
     </div>
   );
 };
