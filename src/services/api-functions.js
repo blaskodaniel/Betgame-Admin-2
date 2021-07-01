@@ -27,5 +27,13 @@ export const getAvatars = () => {
 
 // With token
 export const GetAllUsers = () => {
-  return APIClient.get(`alluser`);
+  return APIClient.get(`allusernew`);
+};
+
+export const GetChampionships = () => {
+  return APIClient.get(`championships`);
+};
+
+export const SetChampionships = (body) => {
+  return APIClient.patch(`championships`, body);
 };

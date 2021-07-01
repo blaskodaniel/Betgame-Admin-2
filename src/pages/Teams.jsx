@@ -3,6 +3,7 @@ import { Button } from 'antd';
 import { useRecoilValueLoadable } from 'recoil';
 import Loader from '../components/Loader';
 import TeamBox from '../components/Teams/TeamBox';
+import WarningPanel from '../components/WarningPanel';
 import { getTeamsSelector } from '../statemanager/selectors';
 
 const TeamsPage = () => {
@@ -13,7 +14,7 @@ const TeamsPage = () => {
   }
 
   if (teamsLoadable.state === 'hasError') {
-    throw teamsLoadable.contents;
+    return <WarningPanel text={`${teamsLoadable.contents}`} />;
   }
 
   return (

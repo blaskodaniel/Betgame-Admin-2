@@ -1,5 +1,5 @@
 import axios from 'axios';
-import tokenChecker from '../utils/tokenChecker';
+import { readToken } from '../utils/common';
 
 axios.defaults.timeout = 8000;
 
@@ -19,7 +19,7 @@ export const APIClient = axios.create({
  */
 APIClient.interceptors.request.use(
   (request) => {
-    const token = tokenChecker();
+    const token = readToken();
 
     if (token) {
       request.headers['x-access-token'] = token;

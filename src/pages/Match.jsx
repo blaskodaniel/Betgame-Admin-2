@@ -1,4 +1,4 @@
-import { Button, Col, DatePicker, Form, InputNumber, PageHeader, Radio, Row, Select, notification } from 'antd';
+import { Button, Col, DatePicker, Form, Input, InputNumber, PageHeader, Radio, Row, Select, notification } from 'antd';
 import { LeftOutlined } from '@ant-design/icons';
 import Avatar from 'antd/lib/avatar/avatar';
 import moment from 'moment';
@@ -146,7 +146,7 @@ const MatchPage = () => {
             </Row>
             <Row>
               <Form.Item initialValue={matchLoadable.contents.outcome} label="Kimenetel" name="outcome">
-                <InputNumber />
+                <Input />
               </Form.Item>
             </Row>
             <Row justify="space-between">

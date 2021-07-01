@@ -1,0 +1,19 @@
+.users-page {
+  padding-top: 1rem;
+  .page-header {
+    display: flex;
+    justify-content: flex-end;
+  }
+  .user-group-section {
+    padding-bottom: 1rem;
+    h2 {
+      color: #fff;
+    }
+  }
+  .list {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax($user-card-max-width, 1fr));
+    gap: 1.5rem;
+    padding-top: 1rem;
+  }
+}

@@ -1,6 +1,6 @@
 import jwtDecode from 'jwt-decode';
 
-export default function tokenChecker() {
+export function tokenChecker() {
   const user = localStorage.getItem(process.env.REACT_APP_JWTTOKEN);
 
   if (user) {
@@ -8,4 +8,10 @@ export default function tokenChecker() {
     return decodedToken;
   }
   return false;
+}
+
+export function readToken() {
+  const token = localStorage.getItem(process.env.REACT_APP_JWTTOKEN);
+
+  return token || null;
 }

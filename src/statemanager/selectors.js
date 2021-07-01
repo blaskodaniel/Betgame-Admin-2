@@ -1,5 +1,12 @@
 import { selector, selectorFamily } from 'recoil';
-import { GetAllGroups, GetAllMatches, GetAllTeams, GetMatchById } from '../services/api-functions';
+import {
+  GetAllGroups,
+  GetAllMatches,
+  GetAllTeams,
+  GetAllUsers,
+  GetChampionships,
+  GetMatchById,
+} from '../services/api-functions';
 
 export const getMatchesSelector = selector({
   key: 'getMatchesSelector',
@@ -34,8 +41,7 @@ export const getTeamsSelector = selector({
       const resp = await GetAllTeams();
       return resp.data || [];
     } catch (e) {
-      console.log('ERROR');
-      return [];
+      throw new Error(`${e.message}`);
     }
   },
 });
@@ -49,6 +55,31 @@ export const getGroupSelector = selector({
     } catch (e) {
       console.log('ERROR');
       return [];
+    }
+  },
+});
+
+export const getUsersSelector = selector({
+  key: 'getUsersSelector',
+  get: async () => {
+    try {
+      const resp = await GetAllUsers();
+      return resp.data || [];
+    } catch (e) {
+      console.log('ERROR');
+      return [];
+    }
+  },
+});
+
+export const getChampionshipsSelector = selector({
+  key: 'getChampionshipsSelector',
+  get: async () => {
+    try {
+      const resp = await GetChampionships();
+      return resp.data || null;
+    } catch (e) {
+      throw new Error(`${e.message}`);
     }
   },
 });

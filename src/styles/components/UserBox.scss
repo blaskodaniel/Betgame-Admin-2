@@ -1,0 +1,67 @@
+.user-box {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  background: $team-box;
+  padding: 1.5rem;
+  border-radius: 10px;
+  box-shadow: 0px 0px 7px 0px #0000006b;
+  color: #fff;
+
+  .user-avatar {
+    height: 85px;
+    width: 85px;
+    background-size: cover;
+    background-repeat: no-repeat;
+    margin: auto;
+    border: 4px solid #3e454d;
+    border-radius: 50%;
+  }
+  .user-info {
+    h2 {
+      text-align: center;
+      color: #efef;
+      margin-top: 0.4rem;
+      margin-bottom: 0;
+      @include screen(tablet) {
+        font-size: 1rem;
+      }
+    }
+    small {
+      color: $main;
+      text-align: center;
+      display: block;
+      padding-bottom: 1rem;
+    }
+    .user-props {
+      font-size: 0.75rem;
+      display: flex;
+      justify-content: center;
+      .prop-wrapper {
+        max-width: 10rem;
+        .prop {
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          justify-content: space-between;
+          div:nth-child(1) {
+            padding-right: 20px;
+            font-weight: 400;
+          }
+        }
+      }
+    }
+  }
+  .edit-button {
+    display: flex;
+    justify-content: flex-end;
+    top: 8px;
+    right: -8px;
+    position: relative;
+    button {
+      background: $main;
+      color: #000;
+      border-color: $main;
+    }
+  }
+}

@@ -6,8 +6,8 @@ const GroupBox = ({ group, teamsLoadable }) => {
   return (
     <section className="group-box">
       <div className="group-name">{group.name} csoport</div>
-      <Form form={form} layout="horizontal" size="middle">
-        <Form.Item initialValue={group.winteamid?._id} label="Győztes csapat" name="winteamid">
+      <Form form={form} layout="horizontal" size="middle" name={group._id}>
+        <Form.Item initialValue={group.winteamid} label="Győztes csapat" name="winteamid">
           <Select placeholder="Válassz csapatot">
             {teamsLoadable.state === 'hasValue' &&
               teamsLoadable.contents?.map((x) => (

@@ -2,8 +2,8 @@ import React, { createContext, useEffect, useState } from 'react';
 import { Route, Switch } from 'react-router-dom';
 import { notification } from 'antd';
 import LoginPage from '../pages/Login';
-import tokenChecker from '../utils/tokenChecker';
 import { Login } from '../services/api-functions';
+import { tokenChecker } from '../utils/common';
 
 export const LoginState = {
   Pending: 'Pending',

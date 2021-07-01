@@ -1,4 +1,4 @@
-import GameSettings from './pages/GameSettings';
+import ChampionshipsPage from './pages/ChampionshipsPage';
 import GroupsPage from './pages/Groups';
 import HomePage from './pages/Home';
 import LogsPage from './pages/Logs';
@@ -63,11 +63,11 @@ const Routing = [
     disabled: false,
   },
   {
-    id: 'gamesettings',
-    path: 'settings',
+    id: 'championships',
+    path: 'championships',
     icon: 'las la-cog',
-    displayname: 'Beállítások',
-    component: GameSettings,
+    displayname: 'Bajnokságok',
+    component: ChampionshipsPage,
     visibleinmenu: true,
     disabled: false,
   },
