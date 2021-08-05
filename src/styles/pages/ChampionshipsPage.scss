@@ -6,7 +6,12 @@
   }
   .list {
     display: grid;
-    grid-template-columns: 1fr;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
     padding-top: 1rem;
+
+    @include screen(tablet) {
+      grid-template-columns: 1fr;
+    }
   }
 }

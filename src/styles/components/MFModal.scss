@@ -1,0 +1,17 @@
+.mf-modal {
+  .ant-modal-content {
+    border-radius: 20px;
+  }
+  .ant-modal-header {
+    background: $championship-box;
+    div {
+      color: white;
+    }
+  }
+  .ant-modal-body {
+    background: $championship-box;
+  }
+  .ant-modal-footer {
+    background: $championship-box;
+  }
+}

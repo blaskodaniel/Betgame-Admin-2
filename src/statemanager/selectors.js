@@ -5,8 +5,11 @@ import {
   GetAllTeams,
   GetAllUsers,
   GetChampionships,
+  GetFlags,
+  GetLogs,
   GetMatchById,
 } from '../services/api-functions';
+import { LogsCurrentPageValue } from './atoms';
 
 export const getMatchesSelector = selector({
   key: 'getMatchesSelector',
@@ -59,6 +62,19 @@ export const getGroupSelector = selector({
   },
 });
 
+export const getFlagSelector = selector({
+  key: 'getFlagSelector',
+  get: async () => {
+    try {
+      const resp = await GetFlags();
+      return resp.data || [];
+    } catch (e) {
+      console.log('ERROR');
+      return [];
+    }
+  },
+});
+
 export const getUsersSelector = selector({
   key: 'getUsersSelector',
   get: async () => {
@@ -78,6 +94,18 @@ export const getChampionshipsSelector = selector({
     try {
       const resp = await GetChampionships();
       return resp.data || null;
+    } catch (e) {
+      throw new Error(`${e.message}`);
+    }
+  },
+});
+
+export const getLogsSelector = selector({
+  key: 'getLogsSelector',
+  get: async ({ get }) => {
+    try {
+      const resp = await GetLogs(get(LogsCurrentPageValue).pagenumber);
+      return resp.data || [];
     } catch (e) {
       throw new Error(`${e.message}`);
     }

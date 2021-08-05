@@ -1,7 +1,14 @@
 .card {
   background: $bg;
-  padding: 2rem 1rem;
-  border-radius: 3px;
+  padding: 1rem;
+  border-radius: 8px;
+  display: flex;
+  justify-content: space-around;
+  box-shadow: 0px 0px 5px 0px #0000006b;
+
+  &.alert-bg {
+    background: linear-gradient(to right bottom, #730d0dd1, #650707d0);
+  }
 }
 
 .card-icon {
@@ -13,34 +20,24 @@
 .card-icon i {
   height: 55px;
   width: 55px;
-  font-size: 2rem;
+  font-size: 4rem;
   color: #fff;
   border-radius: 6px;
   display: grid;
   place-items: center;
 }
 
-.background1 i {
-  color: #0072f2;
-  background: #e5f3fe;
-}
-
-.background2 i {
-  color: #f42a26;
-  background: #fde9ea;
-}
-
-.background3 i {
-  color: #ffbc01;
-  background: #fff8e5;
+.background i {
+  color: $main;
 }
 
 .card-info {
-  text-align: center;
+  text-align: right;
   margin-top: 0.6rem;
 }
 
 .card-info h2 {
+  margin-bottom: 0;
   font-size: 3rem;
   color: #fefefe;
 }
@@ -49,4 +46,6 @@
   display: inline-block;
   color: $main;
   font-weight: 500;
+  position: relative;
+  top: -15px;
 }

@@ -16,3 +16,11 @@ export const TeamsAtom = atom({
   key: 'teamsatom',
   default: [],
 });
+
+export const LogsCurrentPageValue = atom({
+  key: 'LogsCurrentPageValue',
+  default: {
+    pagenumber: 1,
+    pagesize: 10,
+  },
+});

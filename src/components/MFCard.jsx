@@ -1,12 +1,12 @@
-const MFCard = () => {
+const MFCard = ({ title, value, icon, type }) => {
   return (
-    <div className="card">
-      <div className="card-icon background1">
-        <i className="las la-users" />
+    <div className={`card ${type === 'alert' && 'alert-bg'}`}>
+      <div className="card-icon background">
+        <i className={icon} />
       </div>
       <div className="card-info">
-        <h2>15</h2>
-        <small>Total players</small>
+        <h2>{value}</h2>
+        <small>{title}</small>
       </div>
     </div>
   );

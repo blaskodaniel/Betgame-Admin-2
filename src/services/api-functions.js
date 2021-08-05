@@ -1,6 +1,11 @@
 import { APIClient, PublicAPIClient } from './axios';
 
-// Without token
+/**
+ *
+ *  Without token
+ *
+ */
+
 export const Login = (email, password) => {
   return PublicAPIClient.post(`login`, { email, password });
 };
@@ -25,7 +30,11 @@ export const getAvatars = () => {
   return PublicAPIClient.get(`getavatars`);
 };
 
-// With token
+/**
+ *
+ *  With token
+ *
+ */
 export const GetAllUsers = () => {
   return APIClient.get(`allusernew`);
 };
@@ -36,4 +45,24 @@ export const GetChampionships = () => {
 
 export const SetChampionships = (body) => {
   return APIClient.patch(`championships`, body);
+};
+
+export const CreateChampionships = (body) => {
+  return APIClient.post(`championships`, body);
+};
+
+export const DeleteChampionships = (id) => {
+  return APIClient.delete(`championships/${id}`);
+};
+
+export const GetLogs = (pagenumber) => {
+  return APIClient.post(`logs`, { page: pagenumber });
+};
+
+export const GetFlags = () => {
+  return APIClient.get(`getflags`);
+};
+
+export const CreateTeam = (body) => {
+  return APIClient.post(`addteam`, body);
 };

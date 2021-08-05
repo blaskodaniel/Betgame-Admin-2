@@ -1,12 +1,13 @@
-import { Button, Col, DatePicker, Form, Input, Radio, Row, notification } from 'antd';
+import { DeleteOutlined, ExclamationCircleOutlined } from '@ant-design/icons';
+import { Button, Col, DatePicker, Form, Input, Modal, Radio, Row, Space, Tooltip, notification } from 'antd';
 import moment from 'moment';
-import { SetChampionships } from '../../services/api-functions';
+import { DeleteChampionships, SetChampionships } from '../../services/api-functions';
 
 const Championship = ({ championship }) => {
   const [form] = Form.useForm();
 
   const onValueChanges = (event) => {
-    // console.log(event);
+    console.log(event);
   };
 
   const onFinish = async (values) => {
@@ -30,6 +31,31 @@ const Championship = ({ championship }) => {
     }
   };
 
+  const onDelete = (id) => {
+    Modal.confirm({
+      title: 'Bajnokság törlése',
+      icon: <ExclamationCircleOutlined />,
+      content: 'Biztosan törlöd?',
+      okText: 'Igen',
+      cancelText: 'Nem',
+      onOk: async () => {
+        console.log(`Delete ${id}`);
+        try {
+          await DeleteChampionships(id);
+          notification.success({
+            message: 'Sikeres törlés',
+            description: '',
+          });
+        } catch (err) {
+          notification.error({
+            message: 'Hiba a törlés során',
+            description: err.message,
+          });
+        }
+      },
+    });
+  };
+
   return (
     <section className="championship-element">
       <Row>
@@ -37,7 +63,14 @@ const Championship = ({ championship }) => {
           <h1>{championship.displayname}</h1>
         </Col>
       </Row>
-      <Form layout="vertical" onValuesChange={onValueChanges} onFinish={onFinish} size="middle" name={championship._id}>
+      <Form
+        form={form}
+        layout="vertical"
+        onValuesChange={onValueChanges}
+        onFinish={onFinish}
+        size="middle"
+        name={championship._id}
+      >
         <Row gutter={16}>
           <Col>
             <Form.Item initialValue={championship.displayname} label="Bajnokság neve" name="displayname">
@@ -72,7 +105,7 @@ const Championship = ({ championship }) => {
         </Row>
         <Row>
           <Col>
-            <Form.Item initialValue={championship.enabled.toString()} label="Engedélyezve" name="enabled">
+            <Form.Item initialValue={championship.enabled.toString()} label="Bekapcsolva" name="enabled">
               <Radio.Group buttonStyle="solid">
                 <Radio.Button value="true">Igen</Radio.Button>
                 <Radio.Button value="false">Nem</Radio.Button>
@@ -88,13 +121,20 @@ const Championship = ({ championship }) => {
           </Col>
         </Row>
         <Row justify="end" align="middle">
-          <Col>
-            <Form.Item className="form-button">
-              <Button type="primary" htmlType="submit">
-                Mentés
-              </Button>
-            </Form.Item>
-          </Col>
+          <Space>
+            <Col>
+              <Form.Item className="form-button">
+                <Button type="primary" htmlType="submit">
+                  Mentés
+                </Button>
+              </Form.Item>
+            </Col>
+            <Col>
+              <Tooltip title="Törlése">
+                <Button onClick={() => onDelete(championship._id)} type="primary" icon={<DeleteOutlined />} danger />
+              </Tooltip>
+            </Col>
+          </Space>
         </Row>
       </Form>
     </section>

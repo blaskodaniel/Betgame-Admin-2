@@ -1,0 +1,27 @@
+.log-desktop-view {
+  display: grid;
+  grid-template-columns: 60px 1fr 1fr 1fr;
+  place-items: center;
+  padding: 1rem 0.5rem;
+  border-bottom: 1px solid black;
+  font-size: 1rem;
+  color: #b7b7b7;
+  margin-bottom: 5px;
+  & > div {
+    padding-left: 1rem;
+  }
+  &.error {
+    background: $log-error-bg;
+  }
+  &.info {
+    background: $log-info-bg;
+  }
+  &.warning {
+    background: $log-warning-bg;
+  }
+  .log-icon {
+    font-size: 1.7rem;
+  }
+  .log-message {
+  }
+}
